@@ -43,7 +43,3 @@ jobs:
           AWS_DEFAULT_ACCOUNT: ${{ secrets.AWS_DEFAULT_ACCOUNT }}
         run: cdk deploy
       
-      - name: Update X-Ray trace segment destination
-        env:
-          AWS_DEFAULT_ACCOUNT: ${{ secrets.AWS_DEFAULT_ACCOUNT }}
-        run: aws xray update-trace-segment-destination --destination CloudWatchLogs
