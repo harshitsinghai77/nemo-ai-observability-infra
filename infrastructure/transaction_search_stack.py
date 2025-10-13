@@ -1,10 +1,9 @@
+import json
 from aws_cdk import (
     Stack,
     aws_logs as logs,
     aws_xray as xray,
-    aws_iam as iam,
     aws_logs as logs,
-    CfnResource,
 )
 from constructs import Construct
 
@@ -47,7 +46,7 @@ class NemoAITransactionSearchStack(Stack):
             self,
             "TransactionSearchXRayLogsResourcePolicy",
             policy_name="TransactionSearchAccess",
-            policy_document=policy_doc
+            policy_document=json.dumps(policy_doc)
         )
 
         indexing_pct = 1
